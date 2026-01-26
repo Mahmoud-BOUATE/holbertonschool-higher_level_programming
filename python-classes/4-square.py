@@ -7,16 +7,16 @@ class Square:
 
     def __init__(self, size=0):
         """Initialize a new square."""
-        self.size = size  # utilise le setter pour valider et assigner
+        self.size = size
 
     @property
     def size(self):
-        """Retrieve the size of the square."""
+        """Retrieve size."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Set the size of the square with validation."""
+        """Set size with validation."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -24,6 +24,5 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Return the current square area."""
+        """Return current square area."""
         return self.__size * self.__size
-
