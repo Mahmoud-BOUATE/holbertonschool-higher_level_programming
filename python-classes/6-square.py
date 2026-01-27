@@ -54,13 +54,9 @@ class Square:
             print()
             return
 
-        # Décalage vertical (position[1])
         for j in range(self.__position[1]):
             print()
 
-        # Boucle pour chaque ligne du carré
         for i in range(self.__size):
-            # Décalage horizontal (position[0])
             print(" " * self.__position[0], end="")
-            # Les # du carré
             print("#" * self.__size)
