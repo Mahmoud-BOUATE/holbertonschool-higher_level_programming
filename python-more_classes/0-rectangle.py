@@ -4,6 +4,6 @@ This module defines an empty class rectangle.
 """
 
 
-class rectangle:
+class Rectangle:
     """Represents an empty rectangle."""
     pass
