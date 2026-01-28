@@ -55,7 +55,7 @@ class Rectangle:
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ""
-        symbol = str(self.print_symbol)  # utilise l'attribut de l'instance ou de la classe
+        symbol = str(self.print_symbol)
         lines = [symbol * self.width for _ in range(self.height)]
         return "\n".join(lines)
 
