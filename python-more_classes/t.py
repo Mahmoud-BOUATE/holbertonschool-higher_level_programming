@@ -1,8 +1,17 @@
 #!/usr/bin/python3
-def ma_fonction(f):
-    return f()
+class Base():
+    """ My base class """
 
-def dire_bonjour():
-    return "Bonjour !"
+    __nb_instances = 0
 
-print(ma_fonction(dire_bonjour))  # On passe la fonction comme objet
+    def __init__(self):
+        Base.__nb_instances += 1
+        self.id = Base.__nb_instances
+
+class User(Base):
+    """ My User class """
+    pass
+
+b = Base()
+u = User()
+print(u.id)
