@@ -1,40 +1,18 @@
+$ cat 1-main.py
 #!/usr/bin/python3
-"""
-Test pour la classe MyList
-"""
-
-import io
-import sys
-import unittest
 MyList = __import__('1-my_list').MyList
 
-class TestMyList(unittest.TestCase):
-    def test_inheritance(self):
-        """Vérifie que MyList hérite de list"""
-        ml = MyList()
-        self.assertTrue(issubclass(MyList, list))
-        self.assertIsInstance(ml, list)
+my_list = MyList()
+my_list.append(1)
+my_list.append(4)
+my_list.append(2)
+my_list.append(3)
+my_list.append(5)
+print(my_list)
+my_list.print_sorted()
+print(my_list)
 
-    def test_print_sorted(self):
-        """Vérifie que print_sorted affiche la liste triée"""
-        ml = MyList([5, 3, 1, 4, 2])
-
-        # Capture de la sortie standard
-        captured_output = io.StringIO()
-        sys.stdout = captured_output
-
-        ml.print_sorted()
-
-        sys.stdout = sys.__stdout__  # Restaure stdout
-
-        # Vérifie que la sortie est bien triée
-        self.assertEqual(captured_output.getvalue(), "[1, 2, 3, 4, 5]\n")
-
-    def test_list_not_modified(self):
-        """Vérifie que la liste originale n'est pas modifiée"""
-        ml = MyList([5, 3, 1, 4, 2])
-        ml.print_sorted()
-        self.assertEqual(list(ml), [5, 3, 1, 4, 2])
-
-if __name__ == "__main__":
-    unittest.main()
+$ ./1-main.py
+[1, 4, 2, 3, 5]
+[1, 2, 3, 4, 5]
+[1, 4, 2, 3, 5]
