@@ -1,17 +1,50 @@
-"""
-Doctest for MyList class
-"""
+The ``MyList`` class should inherit from ``list`` and provide a method
+to print the list sorted in ascending order without modifying the list.
+
+Basic sorting behavior.
 
 >>> MyList = __import__('1-my_list').MyList
+
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
 >>> my_list.append(2)
 >>> my_list.append(3)
 >>> my_list.append(5)
+
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
+
 >>> print(my_list)
 [1, 4, 2, 3, 5]
+
+--------------------------------------------------
+Check sorting with negative numbers and unsorted input.
+
+>>> my_list = MyList()
+>>> my_list.append(-3)
+>>> my_list.append(10)
+>>> my_list.append(0)
+>>> my_list.append(-1)
+
+>>> print(my_list)
+[-3, 10, 0, -1]
+
+>>> my_list.print_sorted()
+[-3, -1, 0, 10]
+
+>>> print(my_list)
+[-3, 10, 0, -1]
+
+--------------------------------------------------
+Check behavior with an empty list.
+
+>>> empty_list = MyList()
+>>> print(empty_list)
+[]
+
+>>> empty_list.print_sorted()
+[]
