@@ -38,8 +38,3 @@ def shape_info(shape):
     print(shape.area())
     print(shape.perimeter())
 
-c = Circle(3)
-r = Rectangle(4, 5)
-
-shape_info(c)
-shape_info(r)
