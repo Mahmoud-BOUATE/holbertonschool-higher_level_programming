@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module contenant la classe MyList."""
 
+
 class MyList(list):
     """Classe qui hérite de list."""
 
