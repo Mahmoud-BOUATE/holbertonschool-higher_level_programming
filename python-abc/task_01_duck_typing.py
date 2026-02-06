@@ -1,25 +1,21 @@
-#!/usr/bin/env python3
-"""Duck typing task"""
-
+# task_01_duck_typing.py
 from abc import ABC, abstractmethod
 import math
 
-
+# Classe abstraite Shape
 class Shape(ABC):
-    """Abstract class"""
-
     @abstractmethod
     def area(self):
+        """Retourne l'aire de la forme"""
         pass
 
     @abstractmethod
     def perimeter(self):
+        """Retourne le périmètre de la forme"""
         pass
 
-
+# Classe concrète Circle
 class Circle(Shape):
-    """Circle class"""
-
     def __init__(self, radius):
         self.radius = radius
 
@@ -29,10 +25,8 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * math.pi * self.radius
 
-
+# Classe concrète Rectangle
 class Rectangle(Shape):
-    """Rectangle class"""
-
     def __init__(self, width, height):
         self.width = width
         self.height = height
@@ -43,7 +37,7 @@ class Rectangle(Shape):
     def perimeter(self):
         return 2 * (self.width + self.height)
 
-
+# Fonction shape_info utilisant le duck typing
 def shape_info(shape):
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
