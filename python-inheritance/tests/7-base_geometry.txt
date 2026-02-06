@@ -1,27 +1,278 @@
-"""
-Doctest for BaseGeometry class
-"""
+Mahmoud
+mahmoud_29209
+En ligne
+
+Thorgalix — 03/02/2026 10:48
+Merci
+Mahmoud
+👍🏼
+Image
+Thorgalix — 03/02/2026 11:53
+Image
+Thorgalix — 03/02/2026 14:27
+https://lucid.app/
+Lucid visual collaboration suite: Log in
+Go from imagining the future to building it. Log in to access Lucidchart for intelligent diagramming or Lucidspark for virtual whiteboarding. Teams can collaborate, ideate, and build projects in real time.
+Mahmoud — 03/02/2026 16:49
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramme de Séquence - User Registration (HBnB)</title>
+
+user_registration_dao_sequence.html
+15 Ko
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramme de Séquence - Fetching Places (HBnB)</title>
+
+fetching_places_dao_sequence.html
+17 Ko
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramme de Séquence - Review Submission (HBnB)</title>
+
+review_submission_dao_sequence.html
+19 Ko
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramme de Séquence - Place Creation (HBnB)</title>
+
+place_creation_dao_sequence (1).html
+18 Ko
+Thorgalix — 03/02/2026 16:49
+https://lucid.app/lucidchart/253768a2-7757-4f08-ab7b-455a5567a047/edit?viewport_loc=-8412%2C-831%2C10194%2C4931%2C0_0&invitationId=inv_7583164e-c0c7-4b71-8c37-d993fbbf7a71
+Mahmoud — 04/02/2026 11:21
+tu as fini le projet 😮🤯
+Thorgalix — 04/02/2026 11:22
+Ouais, ça m'a soulé de devoir faire le sod demain alors j'ai bâclé
+Mahmoud — 04/02/2026 11:25
+A ouais t'as pas trop rélichi 😂😂😂
+Mahmoud — 04/02/2026 12:07
+tu peux m'envoyer la réponse de la tache 1 j'arrive pas à valider avec le chicker
+Thorgalix — 04/02/2026 12:08
+#!/usr/bin/python3
+"""Module that defines a custom list class with a method to print it sorted."""
+
+
+class MyList(list):
+    """Custom list class that can print itself sorted."""
+
+    def print_sorted(self):
+        """Prints the list in ascending sorted order."""
+        print(sorted(self))
+Tâche 1 et 7 y'a un fichier test à faire aussi
+
+The MyList class should inherit from list and provide a method
+to print the list sorted in ascending order without modifying the list.
+
+Basic sorting behavior.
+
+MyList = import('1-my_list').MyList
+
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+
+--------------------------------------------------
+Check sorting with negative numbers and unsorted input.
+
+>>> my_list = MyList()
+>>> my_list.append(-3)
+>>> my_list.append(10)
+>>> my_list.append(0)
+>>> my_list.append(-1)
+
+>>> print(my_list)
+[-3, 10, 0, -1]
+
+>>> my_list.print_sorted()
+[-3, -1, 0, 10]
+
+>>> print(my_list)
+[-3, 10, 0, -1]
+
+--------------------------------------------------
+Check behavior with an empty list.
+
+>>> empty_list = MyList()
+>>> print(empty_list)
+[]
+
+>>> empty_list.print_sorted()
+[]
+Mahmoud — 04/02/2026 12:10
+Merci
+Thorgalix — 04/02/2026 16:37
+T'en es ou toi ?
+Mahmoud — 04/02/2026 17:49
+J’ai vu ton message
+J’ai fini à 16h le projet
+Thorgalix — 04/02/2026 17:49
+Ah bien ! Le deuxième est bien, assez simple 😉
+Mahmoud — 04/02/2026 17:50
+A ouais c vrai?
+Thorgalix — 04/02/2026 17:50
+Ouais, je l'ai fait cet aprem seul, très peu d'ia
+Mahmoud — 04/02/2026 17:52
+Nickel alors
+Thorgalix — Hier à 10:04
+Image
+Image
+Image
+Thorgalix — Hier à 10:14
+Image
+Thorgalix — Hier à 14:41
+sequenceDiagram
+    autonumber
+
+    participant UI as UI / Client<br/>Presentation Layer
+    participant API as API<br/>Presentation Layer
+    participant BL as User Business Layer
+    participant DB as Database<br/>Persistence Layer
+
+    UI->>API: POST /users/register
+    API->>BL: registerUser(userData)
+
+    BL->>DB: findUserByEmail(email)
+    DB-->>BL: user | null
+
+    alt user exists
+        BL->>API: registrationFailed("email already used")
+        API-->>UI: 409 Conflict
+    else user does not exist
+        BL->>DB: createUser(user)
+        DB-->>BL: user created
+        BL->>API: registrationSuccess(userDTO)
+        API-->>UI: 201 Created
+    end
+Thorgalix — Hier à 14:48
+https://mermaid.ai/app/projects/dca028b2-f5da-45d8-a6b8-e7fb1d68cb9e/diagrams/38ee3063-a41b-4bb5-a9c9-4f0cb7a46fff/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiMzhlZTMwNjMtYTQxYi00YmI1LWE5YzktNGYwY2I3YTQ2ZmZmIiwiYWNjZXNzIjoiVmlldyIsImlhdCI6MTc3MDI5OTMyOX0.Xjy-U82TCkcIZGtbrKcvVeeovCN17OmsWayxVjWYGI4
+Mermaid Chart
+Mermaid Chart makes diagramming simple: create and edit flowcharts, sequence diagrams, and more online. Collaborate in real time and save hours.
+Image
+Thorgalix — Hier à 15:01
+https://github.com/Thorgalix/holbertonschool-hbnb
+GitHub
+GitHub - Thorgalix/holbertonschool-hbnb
+Contribute to Thorgalix/holbertonschool-hbnb development by creating an account on GitHub.
+Contribute to Thorgalix/holbertonschool-hbnb development by creating an account on GitHub.
+Type de fichier joint : acrobat
+Guide de référence Git & GitHub.pdf.pdf
+507.80 KB
+Mahmoud — 12:00
+lucas, pour la tache 1 de projet 1 j'ai pas compris ce que tu m'a envoyer
+tu peux m'envoyer le fichier que le fichier text de la tache 1 et 7 séparément
+Thorgalix — 12:03
+The ``MyList`` class should inherit from ``list`` and provide a method
+to print the list sorted in ascending order without modifying the list.
+
+Basic sorting behavior.
+
+>>> MyList = __import__('1-my_list').MyList
+
+1-my_list.txt
+1 Ko
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+
+7-base_geometry.txt
+3 Ko
+﻿
+Thorgalix
+thorgalix
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> bg = BaseGeometry()
-
->>> bg.integer_validator("my_int", 12)
->>> bg.integer_validator("width", 89)
-
 >>> try:
-...     bg.integer_validator("name", "John")
+...     bg.area()
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[TypeError] name must be an integer
+[Exception] area() is not implemented
 
+Test integer_validator with valid value
+>>> bg.integer_validator("size", 10)
+>>> print("Valid value passed")
+Valid value passed
+
+Test integer_validator with invalid type
 >>> try:
-...     bg.integer_validator("age", 0)
+...     bg.integer_validator("size", "10")
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] age must be greater than 0
+[TypeError] size must be an integer
 
+Test integer_validator with invalid value (<=0)
 >>> try:
-...     bg.integer_validator("distance", -4)
+...     bg.integer_validator("height", 0)
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-[ValueError] distance must be greater than 0
+[ValueError] height must be greater than 0
+
+Test present: integer_validator() with missing value
+>>> try:
+...     bg.integer_validator("age")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] integer_validator() missing 1 required positional argument: 'value'
+
+Test present: integer_validator("age", (4,))
+>>> try:
+...     bg.integer_validator("age", (4,))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test present: integer_validator("age", [3])
+>>> try:
+...     bg.integer_validator("age", [3])
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test present: integer_validator("age", True)
+>>> try:
+...     bg.integer_validator("age", True)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test present: integer_validator("age", {3, 4})
+>>> try:
+...     bg.integer_validator("age", {3, 4})
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
+
+Test present: integer_validator("age", None)
+>>> try:
+...     bg.integer_validator("age", None)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] age must be an integer
