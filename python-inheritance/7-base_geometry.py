@@ -3,6 +3,7 @@
 Module that defines a BaseGeometry class with area and integer validation
 """
 
+
 class BaseGeometry:
     """Base class for geometry"""
 
