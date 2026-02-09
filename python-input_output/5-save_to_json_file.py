@@ -2,7 +2,7 @@
 """import le module json de python"""
 import json
 
-"""function that writes an Object to a text file, using a JSON representation"""
+"""function that writes an Object to a text file, using a JSON repre"""
 
 
 def save_to_json_file(my_obj, filename):
