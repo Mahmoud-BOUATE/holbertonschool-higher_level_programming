@@ -5,6 +5,6 @@
 def read_file(filename="my_file_0.txt"):
     """Cette fonction indique le fichier à ouvrir et le mode d'ouverture"""
 
-    with open("my_file_0.txt", 'r', encoding="utf-8") as f:
+    with open(filename, 'r', encoding="utf-8") as f:
         simple_line = f.read()
     print(simple_line)
