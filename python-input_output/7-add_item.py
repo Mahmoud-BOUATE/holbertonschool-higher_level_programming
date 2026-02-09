@@ -4,9 +4,9 @@ Script that adds all arguments to a Python list, and saves them to a file.
 Uses save_to_json_file and load_from_json_file.
 """
 
-
 import sys
 import importlib.util
+import os
 
 # Import save_to_json_file from 5-save_to_json_file.py
 spec_save = importlib.util.spec_from_file_location(
@@ -27,8 +27,11 @@ load_from_json_file = load_module.load_from_json_file
 # File to store the list
 filename = "add_item.json"
 
-# Load existing list (assume function returns [] if file doesn't exist)
-items = load_from_json_file(filename)
+# Load existing list if file exists, else start with empty list
+if os.path.exists(filename):
+    items = load_from_json_file(filename)
+else:
+    items = []
 
 # Add all command-line arguments (excluding script name)
 items.extend(sys.argv[1:])
