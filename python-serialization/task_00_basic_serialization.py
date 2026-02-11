@@ -6,11 +6,11 @@ import json
 
 def serialize_and_save_to_file(data, filename):
     """fonction de serialisation"""
-    filename = json.dumps(data)
-    print(filename)
+    with open("filename", "w") as f:
+        json.dump(data,f)
 
 
 def load_and_deserialize(filename):
     """fonction de déserialisation"""
-    data = json.loads(filename)
-    print(filename)
+    with open(filename, "r") as f:
+        return json.load(f)
