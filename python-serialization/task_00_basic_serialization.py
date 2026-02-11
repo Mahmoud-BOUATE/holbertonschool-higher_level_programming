@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""
-Docstring for python-serialization.task_00_basic_serialization
-"""
 import json
 
+
 def serialize_and_save_to_file(data, filename):
-    """fonction de serialisation"""
-    with open("filename", "w") as f:
-        json.dump(data,f)
+    """
+    Serialize a Python dictionary and save it to a JSON file
+    """
+    with open(filename, "w") as f:
+        json.dump(data, f)
 
 
 def load_and_deserialize(filename):
-    """fonction de déserialisation"""
+    """
+    Load a JSON file and deserialize it to a Python dictionary
+    """
     with open(filename, "r") as f:
         return json.load(f)
