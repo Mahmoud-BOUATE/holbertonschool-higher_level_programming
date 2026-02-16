@@ -5,25 +5,41 @@ Docstring for restful-api.task_02_requests
 
 
 import requests
-import json
+import csv
+
 
 def fetch_and_print_posts():
+    """Fetches posts from the API and prints their titles."""
+
     url = "https://jsonplaceholder.typicode.com/posts"
-    posts = requests.get(url)
+    response = requests.get(url)
 
-    if posts.status_code == 200:
-        data = posts.json()
-        structured_posts = []
-
-        for post in data :
-            print(post['title'])
+    if response.status_code == 200:
+        posts = response.json()
+        for i in posts:
+            print(i['title'])
 
 
 def fetch_and_save_posts():
+    """Fetches posts from the API and saves them to a CSV file."""
+
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
+    posts = response.json()
+    structured_posts = []
 
+    for post in posts:
+        structured_posts.append({
+            'id': post['id'],
+            'title': post['title'],
+            'body': post['body']
+            })
+    with open("posts.csv", "w") as f:
+        """Writes the structured posts to a CSV file."""
 
+        fieldnames = ['id', 'title', 'body']
 
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+        writer.writeheader()
+        writer.writerows(structured_posts)
