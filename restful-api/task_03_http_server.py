@@ -34,7 +34,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"ok")
+            self.wfile.write(b"OK")
 
         else:
             self.send_response(200)
