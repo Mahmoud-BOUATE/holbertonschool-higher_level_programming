@@ -39,7 +39,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Not Found")
+            self.wfile.write(b"Endpoint not found")
 
 server = HTTPServer(("", PORT), Handler)
 print(f"Serveur lancé sur http://localhost:{PORT}")
