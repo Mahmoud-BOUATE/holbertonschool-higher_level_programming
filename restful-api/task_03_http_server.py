@@ -35,12 +35,11 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("content-type", "text/plain")
             self.end_headers()
             self.wfile.write(b"OK")
-
         else:
             self.send_response(404)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-
+            self.wfile.write(b"Not Found")
 
 server = HTTPServer(("", PORT), Handler)
 print(f"Serveur lancé sur http://localhost:{PORT}")
