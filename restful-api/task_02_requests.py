@@ -6,14 +6,14 @@ Docstring for restful-api.task_02_requests
 import requests
 import csv
 
+url = "https://jsonplaceholder.typicode.com/posts"
 
 def fetch_and_print_posts():
     """Fetches posts from the API and prints their status code and titles."""
 
-    url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
 
-    # Affiche le code de statut pour que le test passe
+
     print(f"Status Code: {response.status_code}")
 
     if response.status_code == 200:
@@ -25,7 +25,7 @@ def fetch_and_print_posts():
 def fetch_and_save_posts():
     """Fetches posts from the API and saves them to a CSV file."""
 
-    url = "https://jsonplaceholder.typicode.com/posts"
+
     response = requests.get(url)
     posts = response.json()
     structured_posts = []
@@ -38,8 +38,8 @@ def fetch_and_save_posts():
         })
 
     with open("posts.csv", "w", newline='', encoding='utf-8') as f:
-        # Writes the structured posts to a CSV file
-        fieldnames = ['id', 'title', 'body']
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+        colonne = ['id', 'title', 'body']
+        writer = csv.DictWriter(f, fieldnames=colonne)
         writer.writeheader()
         writer.writerows(structured_posts)
