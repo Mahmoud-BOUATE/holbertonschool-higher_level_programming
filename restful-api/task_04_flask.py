@@ -64,11 +64,7 @@ def add_user():
     users[username] = new_user
 
     # Retourner confirmation
-    return jsonify({
-        "message": "User added successfully",
-        "user": new_user
-    }), 201
-
+    return jsonify(new_user), 201
 
 if __name__ == "__main__":
     app.run()
