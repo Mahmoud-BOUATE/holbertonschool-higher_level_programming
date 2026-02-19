@@ -43,7 +43,8 @@ def add_user():
         return jsonify({"error": "Username already exists"}), 409
 
     users[username] = data
-    return jsonify({"message": "User added successfully", "user": data}), 201
+    # Retourner seulement l'objet utilisateur
+    return jsonify(data), 201
 
 # Lancer le serveur Flask
 if __name__ == "__main__":
