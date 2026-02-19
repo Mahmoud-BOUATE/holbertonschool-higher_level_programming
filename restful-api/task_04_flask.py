@@ -38,21 +38,17 @@ def user(username):
 def add_user():
     data = request.get_json()
 
-    # Vérifier JSON valide
     if data is None:
         return jsonify({"error": "Invalid JSON"}), 400
 
-    # Vérifier présence du username
     if "username" not in data:
         return jsonify({"error": "Username is required"}), 400
 
     username = data["username"]
 
-    # Vérifier si username existe déjà
     if username in users:
         return jsonify({"error": "Username already exists"}), 409
 
-    # Créer le nouvel utilisateur
     new_user = {
         "username": username,
         "name": data.get("name", ""),
@@ -60,10 +56,9 @@ def add_user():
         "city": data.get("city", "")
     }
 
-    # Ajouter au dictionnaire
     users[username] = new_user
 
-    # Retourner confirmation
+    # Retourner uniquement le dictionnaire utilisateur
     return jsonify(new_user), 201
 
 if __name__ == "__main__":
