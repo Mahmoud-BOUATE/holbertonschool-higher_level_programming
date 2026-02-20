@@ -23,24 +23,29 @@ def get_data():
 # Endpoint pour récupérer un utilisateur spécifique
 @app.route("/users/<username>")
 def get_user(username):
-    user = users.get(username)
-    if user:
-        return jsonify(user)
-    else:
-        return jsonify({"error": "User not found"}), 404
+    if username in users:
+        return jsonify(users[username]), 200
+    return jsonify({"error": "User not found"}), 404
 
 # Endpoint pour ajouter un nouvel utilisateur
 @app.route("/add_user", methods=["POST"])
 def add_user():
     data = request.get_json()
-    username = data.get("username")
-    if not username:
+
+    if not data or "username" not in data:
         return jsonify({"error": "Username is required"}), 400
+
+    username = data["username"]
+
     if username in users:
         return jsonify({"error": "User already exists"}), 400
-    users[username] = {"username": username}
-    return jsonify({"message": "User added successfully"}), 201
-    
+
+    # Création de l'utilisateur
+    user = {"username": username}
+    users[username] = user
+
+    # IMPORTANT : retourner l'utilisateur créé
+    return jsonify(user), 201
 
 
 # Lancer le serveur Flask
