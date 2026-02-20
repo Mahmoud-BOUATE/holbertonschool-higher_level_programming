@@ -33,18 +33,15 @@ def get_user(username):
 @app.route("/add_user", methods=["POST"])
 def add_user():
     data = request.get_json()
-    if not data:
-        return jsonify({"error": "Invalid JSON"}), 400
-
     username = data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
     if username in users:
-        return jsonify({"error": "Username already exists"}), 409
+        return jsonify({"error": "User already exists"}), 400
+    users[username] = {"username": username}
+    return jsonify({"message": "User added successfully"}), 201
+    
 
-    users[username] = data
-    # Retourner seulement l'objet utilisateur
-    return jsonify(data), 201
 
 # Lancer le serveur Flask
 if __name__ == "__main__":
