@@ -1,0 +1,16 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environnement virtuel
+venv/
+env/
+
+# Fichiers temporaires
+*.log
+*.sqlite3
+
+# IDE / éditeurs
+.vscode/
+.idea/
