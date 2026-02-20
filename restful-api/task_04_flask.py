@@ -1,53 +1,67 @@
+#!/usr/bin/env python3
+"""
+Simple Flask API
+"""
+
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Stockage des utilisateurs en mémoire
+# In-memory storage for users
 users = {}
 
-# Endpoint racine
+
 @app.route("/")
 def home():
+    """Root endpoint"""
     return "Welcome to the Flask API!"
 
-# Endpoint pour vérifier le status
+
 @app.route("/status")
 def status():
+    """Status endpoint"""
     return "OK"
 
-# Endpoint pour récupérer tous les utilisateurs
+
 @app.route("/data")
-def get_data():
+def get_usernames():
+    """Return list of all usernames"""
     return jsonify(list(users.keys()))
 
-# Endpoint pour récupérer un utilisateur spécifique
+
 @app.route("/users/<username>")
 def get_user(username):
-    if username in users:
-        return jsonify(users[username]), 200
-    return jsonify({"error": "User not found"}), 404
+    """Return full user object by username"""
+    if username not in users:
+        return jsonify({"error": "User not found"}), 404
+    return jsonify(users[username])
 
-# Endpoint pour ajouter un nouvel utilisateur
+
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    data = request.get_json()
+    """Add a new user via POST"""
+    try:
+        data = request.get_json()
+        if data is None:
+            raise ValueError
+    except Exception:
+        return jsonify({"error": "Invalid JSON"}), 400
 
-    if not data or "username" not in data:
+    username = data.get("username")
+    if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    username = data["username"]
-
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
+        return jsonify({"error": "Username already exists"}), 409
 
-    # Création de l'utilisateur
-    user = {"username": username}
-    users[username] = user
+    # Store full user object
+    users[username] = data
 
-    # IMPORTANT : retourner l'utilisateur créé
-    return jsonify(user), 201
+    return jsonify({
+        "message": "User added",
+        "user": data
+    }), 201
 
 
-# Lancer le serveur Flask
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
