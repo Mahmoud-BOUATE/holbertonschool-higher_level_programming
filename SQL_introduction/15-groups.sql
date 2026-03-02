@@ -1,9 +1,6 @@
 -- Number by score
-SELECT DISTINCT score, name
+SELECT score, COUNT(*)
 FROM second_table
-where name IS NOT NULL
-ORDER BY score DESC;
-
-
+GROUP BY score
 
 
