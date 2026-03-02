@@ -1,3 +1,4 @@
 -- List by best
-SELECT *
+SELECT score, NAME
 FROM second_table
+ORDER BY score DESC;
