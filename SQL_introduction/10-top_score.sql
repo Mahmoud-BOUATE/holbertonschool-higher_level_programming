@@ -1,4 +1,4 @@
 -- List by best
-SELECT score, NAME
+SELECT DISTINCT score, NAME
 FROM second_table
 ORDER BY score DESC;
