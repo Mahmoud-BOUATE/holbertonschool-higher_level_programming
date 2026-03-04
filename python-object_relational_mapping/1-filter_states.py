@@ -1,8 +1,15 @@
 #!/usr/bin/python3
 """
-Script that lists all states from a MySQL database.
-"""
+Script that takes in an argument and displays all values
+in the states table of hbtn_0e_0_usa where name matches
+the argument.
 
+Arguments:
+    1: mysql username
+    2: mysql password
+    3: database name
+    4: state name searched
+"""
 import MySQLdb
 import sys
 
@@ -11,6 +18,7 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
+    state_name = sys.argv[4]
 
     # Connect to MySQL
     db = MySQLdb.connect(
@@ -25,12 +33,11 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute query
-    cursor.execute(
+    query = cursor.execute(
         "SELECT * FROM states "
-        "WHERE name LIKE BINARY 'N%' "
-        "ORDER BY states.id ASC"
+        "WHERE name = {}"
+        "ORDER BY states.id ASC.format(state_name)"
     )
-
     # Fetch all results
     rows = cursor.fetchall()
 
