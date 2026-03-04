@@ -1,21 +1,16 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
-    "python-envs.pythonProjects": [],
     "sqltools.connections": [
         {
-            "mysqlOptions": {
-                "authProtocol": "default",
-                "enableSsl": "Disabled"
-            },
             "ssh": "Disabled",
             "previewLimit": 50,
-            "server": "localhost",
+            "server": "127.0.0.1",
             "port": 3306,
             "driver": "MySQL",
             "name": "mahmoud",
-            "database": "mysql",
             "username": "root",
-            "password": "ton_mot_de_passe"
+            "password": "B@2004.mahmoud"
         }
-    ]
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system"
 }

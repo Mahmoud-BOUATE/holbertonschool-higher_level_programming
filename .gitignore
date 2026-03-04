@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+
+venv/
+.venv/
+env/
+
+python-object_relational_mapping/venv/
+
+.DS_Store
