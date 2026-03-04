@@ -25,7 +25,7 @@ if __name__ == "__main__":
 	cursor = db.cursor()
 	query = (
 		"SELECT * FROM states "
-		"WHERE name BINARY = '{}' "
+		"WHERE BINARY name  = '{}' "
 		"ORDER BY states.id ASC"
 	).format(state_name)
 	cursor.execute(query)
