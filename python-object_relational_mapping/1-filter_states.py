@@ -18,7 +18,6 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    state_name = sys.argv[4]
 
     # Connect to MySQL
     db = MySQLdb.connect(
@@ -33,11 +32,12 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute query
-    query = cursor.execute(
+    cursor.execute(
         "SELECT * FROM states "
-        "WHERE name = {}"
-        "ORDER BY states.id ASC.format(state_name)"
+        "WHERE name LIKE BINARY 'N%' "
+        "ORDER BY states.id ASC"
     )
+
     # Fetch all results
     rows = cursor.fetchall()
 
