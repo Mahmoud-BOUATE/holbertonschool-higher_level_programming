@@ -1,10 +1,13 @@
 #!/usr/bin/node
+#!/usr/bin/node
 
 const arg = process.argv[2];
 const x = parseInt(arg);
 
-if (Number.isNaN(x)) {
-  console.log('Missing number of occurrences');
+if (Number.isNaN(x) || x <= 0) {
+  if (Number.isNaN(x)) {
+    console.log('Missing number of occurrences');
+  }
 } else {
   let output = '';
   let i = 0;
