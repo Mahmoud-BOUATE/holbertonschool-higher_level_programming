@@ -4,7 +4,7 @@ const x = Number(process.argv[2]);
 
 if (Number.isNaN(x)) {
   console.log('Missing number of occurrences');
-} else {
+} else if (x > 0) {
   let i = 0;
   let output = '';
 
